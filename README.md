@@ -1,28 +1,28 @@
 # docker-django-nginx-postgres
 test for deploy django on docker with docker compose
 
-##Shell Accesing
+## Shell Accesing
 
-###Nginx
+### Nginx
 docker exec -ti nginx bash
 
-###Web
+### Web
 docker exec -ti web bash
 
-###Database
+### Database
 docker exec -ti db bash
 
 ## Logs
 
-###Nginx
+### Nginx
 docker-compose logs nginx
-###Web
+### Web
 docker-compose logs web
-###DB
+### DB
 docker-compose logs db
 
 
-#EXEC:
+# EXEC:
 
 docker-compose build
 docker-compose up -d
