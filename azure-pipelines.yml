@@ -27,4 +27,18 @@ stages:
         dockerfile: '**/Dockerfile'
         tags: |
           $(tag)
+    - task: CopyFiles@1
+      displayName: 'Copy Files to: $(build.artifacstagingdirectory)'
+      inputs: 
+        SourceFolder: :'$(build.sourcedirectory)'
+        Contents: |
+          **\bin\$(BuildConfiguration)\**
+          src\*.testsettings
+        TargetFolder: '$(build.artifactstagingdirectory)'
+      condition: suceededOrFailed()
+
     - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
+      inputs:
+        PathtoPublish: '$(build.artifacstagingdirectory)'
+      condition: succededOrFailed()
