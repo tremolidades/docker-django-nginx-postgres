@@ -27,15 +27,3 @@ stages:
         dockerfile: '**/Dockerfile'
         tags: |
           $(tag)
-    - task: CopyFiles@1
-      inputs:
-        SourceFolder: $(Build.SourcesDirectory)
-        contents: '**\bin\$(BuildConfiguration)\**'
-        targetFolder: $(Build.ArtifactStagingDirectory)
-      condition: succeededOrFailed()
-
-    - task: PublishBuildArtifacts@1
-      inputs:
-        pathToPublish: $(Build.ArtifactStagingDirectory)
-        artifactName: MyBuildOutputsGde
-      condition: succeededOrFailed()
