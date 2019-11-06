@@ -35,10 +35,10 @@ stages:
           **\bin\$(BuildConfiguration)\**
           src\*.testsettings
         TargetFolder: '$(build.artifactstagingdirectory)'
-      condition: succededOrFailed()
+      condition: succeededOrFailed()
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
       inputs:
         PathtoPublish: '$(build.artifacstagingdirectory)'
-      condition: succededOrFailed()
+      condition: succeededOrFailed()
