@@ -27,7 +27,7 @@ stages:
         dockerfile: '**/Dockerfile'
         tags: |
           $(tag)
-    - task: CopyFiles@1
+    - task: CopyFiles@2
       inputs:
         contents: '_buildOutput/**'
         targetFolder: $(Build.ArtifactStagingDirectory)'
